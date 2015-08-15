@@ -26,21 +26,25 @@ def __residual(params, y, x):
 OUTFILE='D'
 DATFILE='cpos'
 total = len(sys.argv)
+#initial values
+W=50
+A=-2
+B=10
+P=.4
+
+
 if total > 1:
     DATFILE = sys.argv[1]
 if total > 2:
-    OUTFILE = sys.argv[1]
+    OUTFILE = sys.argv[2]
+if total > 3:
+    P = float(sys.argv[3])
 
 x,y = np.loadtxt(DATFILE, skiprows=0, unpack=True,comments='%' )
 
 x=np.array(x)
 y=np.array(y)
 
-#initial values
-W=50
-A=-2
-B=10
-P=.3
 
 p_opt,infodict = leastsq(__residual,  array([W,A,B,P]), args=(y, x),maxfev=1000000)
 
