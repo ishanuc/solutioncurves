@@ -14,3 +14,4 @@ where x is data amount, and y is norm MI
     ./fitt_h.py [datafilename] [outfile prefix]
     ./fitt_h.py clight clight
 
+[datafilename] contains x and y columns where x is data amount, and y is  negative entropy
